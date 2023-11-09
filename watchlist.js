@@ -6,11 +6,10 @@ const container = document.getElementById("container")
 const watchListJSON = localStorage.getItem('watchList');
 const watchListArr = JSON.parse(watchListJSON);
 
-container.addEventListener("click", (e) => {
+container.addEventListener("click", function(e) {
     if (e.target.dataset) {
         removeFromWatchlist(e)
     }
-    
 })
 
 async function getMovieList(arr) {

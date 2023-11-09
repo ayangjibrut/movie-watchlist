@@ -19,7 +19,7 @@ container.addEventListener("pointerdown", function(e) {
             if (film.dataset.btnid === e.target.dataset.btnid) {
                 addToWatchlist(e)
                 film.innerHTML =`
-                <p class='added'>✅ Added!</p>
+                <p class='added'><i class="fa-solid fa-check"></i> Added!</p>
                 `
             }   
         }
@@ -76,45 +76,43 @@ async function getMovieList(arr) {
 function renderMovies(arr) {
     const htmlArr = []
     for (let item of arr) {
-        /* this assigns item[5] if it exists */
         const ratings = item[5]?.Value
         const id = item[6]
         if (localStorage.watchList && localStorage.watchList.length > 0 && localStorage.watchList.includes(id)) {
             htmlArr.push(`
                 <div class="film">
+                    <img class="poster" src="${item[1]}">
                     <div class="title-div">
                         <h3 class='title'>${item[0]}</h3>
-                        <p class='rating'><span class="gold-star">★</span>${ratings}</p>
-                    </div>
-                    <img src="${item[1]}" alt="poster for ${item[0]}">
-                    <p class='plot'>${item[2]}</p>
-                    <p class='runtime'>${item[3]}</p>
-                    <p class='genre'>${item[4]}</p>
-                    <div data-btnid="${id}" class="add added">
-                        <p class='added' data-btnid="${id}">✅ Added!</p>
+                        <h3 class="rating"><span class="star">★ </span>${ratings}</h3>
+                        <p class='runtime'>${item[3]} - <span>${item[4]}</span></p>
+                        <p class='plot'>${item[2]}</p>
+                        <div data-btnid="${id}" class="add added">
+                            <p data-btnid="${id}"><i class="fa-solid fa-check" data-btnid="${id}"></i>Added!</p>
+                        </div>
                     </div>
                 </div>
                 <hr>
-                `)
+                `
+            )
         }
         else {
             htmlArr.push(`
                 <div class="film">
+                    <img class="poster" src="${item[1]}">
                     <div class="title-div">
                         <h3 class='title'>${item[0]}</h3>
-                        <p class='rating'><span class="gold-star">★</span>${ratings}</p>
-                    </div>
-                    <img src="${item[1]}" alt="poster for ${item[0]}">
-                    <p class='plot'>${item[2]}</p>
-                    <p class='runtime'>${item[3]}</p>
-                    <p class='genre'>${item[4]}</p>
-                    <div data-btnid="${id}" class="add">
-                        <p data-btnid="${id}" class="plus">+</p> 
-                        <p data-btnid="${id}">Watchlist</p>
+                        <h3 class="rating"><span class="star">★ </span>${ratings}</h3>
+                        <p class='runtime'>${item[3]} - <span>${item[4]}</span></p>
+                        <p class='plot'>${item[2]}</p>
+                        <div data-btnid="${id}" class="add">
+                            <p data-btnid="${id}"><i class="fa-solid fa-plus" data-btnid="${id}"></i>Add to watchlist</p>
+                        </div>
                     </div>
                 </div>
                 <hr>
-                `)
+                `
+            )
         }
     }
     container.innerHTML = htmlArr.join('')

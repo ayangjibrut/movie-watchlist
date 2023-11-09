@@ -5,8 +5,12 @@
 }
 
 body {
+    max-width: 1024px;
+    min-height: 100vh;
+    margin: 0 auto;
     font-family: 'Poppins', sans-serif;
     background-color: whitesmoke;
+    color: #141414;
 }
 
 header {
@@ -54,7 +58,6 @@ input {
     border: 2px solid rgba(128, 128, 128, 0.2);
     width: 55%;
     padding: .8em 1em .8em 3.5em;
-    font-style: italic;
 }
 
 input:focus {
@@ -80,8 +83,8 @@ article {
     margin: 0 auto;
 }
 
-.container {
-    padding-top: 3em;
+.filmreel {
+    padding-top: 7em;
 }
 
 .presearch-state {
@@ -94,8 +97,74 @@ article {
     color: gainsboro;
 }
 
-p {
+p.exploring {
     display: flex;
     justify-content: center;
     color: gainsboro;
+}
+
+.film {
+    font-family: 'Inter', sans-serif;
+    font-size: .7em;
+    display: flex;
+    align-items: center;
+    color: #6B7280;
+    padding: 1.5em 0;
+}
+
+.poster {
+    width: 125px;
+    object-fit: scale-down;
+    margin-right: 1em;
+}
+
+.star {
+    color: #ffb728;
+}
+
+h3.title,
+h3.rating,
+p.runtime {
+    color: #141414;
+}
+
+h3.rating,
+p.plot,
+p.runtime {
+    padding-bottom: 1em;
+}
+
+.fa-check,
+.fa-plus {
+    padding-right: .5em;
+}
+
+@media (min-width: 576px) {
+    body {
+        border-left: 1px solid #141414;
+        border-right: 1px solid #141414;
+    }
+
+    .title-container {
+        justify-content: space-around;
+        padding: 7em 0;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+
+    h2 {
+        font-size: 1.25em;
+    }
+
+    .film {
+        font-size: 1em;
+    }
+
+    .poster {
+        width: 200px;
+        object-fit: scale-down;
+        margin-right: 1em;
+    }
 }
