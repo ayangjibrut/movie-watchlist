@@ -6,27 +6,32 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: whitesmoke;
 }
 
 header {
-    padding: 6em 0;
     background-image: url("https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1625&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .title-container {
-    color: #0d0630;
-    padding: 0 .75em;
+    color: whitesmoke;
+    padding: 7em 1em;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(199, 240, 238, 0.6);
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
 h2 {
-    font-size: 1.25em;
+    font-size: .8em;
     font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+    color: whitesmoke;
 }
 
 section {
@@ -34,22 +39,63 @@ section {
     top: -20px;
     display: flex;
     justify-content: center;
-    overflow: hidden;
+}
+
+.fa-magnifying-glass {
+    position: relative;
+    top: 20px;
+    left: 38px;
+    color: #adadad;
 }
 
 input {
-    border-top-left-radius: 8px 8px;
+    border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     border: 2px solid rgba(128, 128, 128, 0.2);
     width: 55%;
-    padding: .8em 0;
+    padding: .8em 1em .8em 3.5em;
+    font-style: italic;
+}
+
+input:focus {
+    outline: none;
+}
+
+a, button {
+    cursor: pointer;
 }
 
 button {
+    padding: 0 1.75em;
+    margin-right: 1.25em;
     border: 2px solid rgba(128, 128, 128, 0.2);
-    padding: 0 2em;
     border-left: none;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     background-color: whitesmoke;
+}
+
+article {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.container {
+    padding-top: 3em;
+}
+
+.presearch-state {
+    display: flex;
+    justify-content: center;
+}
+
+.fa-film {
+    font-size: 100px;
+    color: gainsboro;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    color: gainsboro;
 }
