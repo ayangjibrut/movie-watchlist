@@ -33,7 +33,7 @@ h2 {
     font-weight: normal;
 }
 
-a {
+a.header {
     text-decoration: none;
     color: whitesmoke;
 }
@@ -83,6 +83,7 @@ article {
     margin: 0 auto;
 }
 
+.error-msg,
 .filmreel {
     padding-top: 7em;
 }
@@ -92,15 +93,19 @@ article {
     justify-content: center;
 }
 
+.error-msg {
+    text-align: center;
+}
+
 .fa-film {
     font-size: 100px;
-    color: gainsboro;
+    color: #adadad;
 }
 
 p.exploring {
     display: flex;
     justify-content: center;
-    color: gainsboro;
+    color: #adadad;
 }
 
 .film {
@@ -122,6 +127,10 @@ p.exploring {
     color: #ffb728;
 }
 
+h3.rating {
+    font-size: .8em;
+}
+
 h3.title,
 h3.rating,
 p.runtime {
@@ -137,6 +146,27 @@ p.runtime {
 .fa-check,
 .fa-plus {
     padding-right: .5em;
+}
+
+p.add,
+.fa-plus,
+p.remove {
+    cursor: pointer;
+}
+
+.watchlist-main-section {
+    padding-top: 1em;
+    padding-bottom: 1.25em;
+    text-align: center;
+}
+
+a.empty {
+    color: #141414;
+    text-decoration: none;
+}
+
+.add-margin-top {
+    margin-top: 0;
 }
 
 @media (min-width: 576px) {
@@ -156,6 +186,14 @@ p.runtime {
 
     h2 {
         font-size: 1.25em;
+    }
+
+    h3.title {
+        font-size: 1.75em;
+    }
+
+    h3.rating {
+        font-size: 1em;
     }
 
     .film {

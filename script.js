@@ -5,11 +5,9 @@ const btn = document.getElementById("search-btn")
 const container = document.getElementById("container")
 const presearch = document.getElementById("presearch-state")
 const films = document.getElementsByClassName("add")
-const baseURL = "https://www.omdbapi.com"
-const key = "3a5aaa7b"
 const watchListJSON = localStorage.getItem('watchList')
 const watchListMaster = JSON.parse(watchListJSON)
-const watchList = []
+let watchList = []
 
 btn.addEventListener("pointerdown", getMovies)
 
@@ -29,7 +27,7 @@ container.addEventListener("pointerdown", function(e) {
 async function getMovies() {
     try {
         if (input.value !== "") { 
-            const response = await fetch(`${baseURL}/?s=${input.value}&type=movie&apikey=${key}`)
+            const response = await fetch(`https://www.omdbapi.com/?s=${input.value}&type=movie&apikey=3a5aaa7b`)
             console.log(response.ok)
             if (!response.ok) {
                 throw Error("Uh oh, something went wrong!")
@@ -41,15 +39,17 @@ async function getMovies() {
             }
             else {
                 container.innerHTML = `
-                <div id="presearch-state">
-                    <h2>Unable to find what you're looking for. Please try another search</h2>
+                <div id="presearch-state" class="error-msg">
+                    <h2>Unable to find what you're looking for.</h2>
+                    <h2>Please try another search.</h2>
                 </div>` 
             }
         }
         else {
             container.innerHTML = `
-                <div id="presearch-state">
-                    <h2>Unable to find what you're looking for. Please try another search</h2>
+                <div id="presearch-state" class="error-msg">
+                    <h2>Unable to find what you're looking for.</h2>
+                    <h2>Please try another search.</h2>
                 </div>`
         }
     }
@@ -65,7 +65,7 @@ async function getMovieList(arr) {
         return movie.imdbID
     })
     const moviePromises = movieIdArray.map(async (item) => {
-        const response = await fetch(`${baseURL}/?i=${item}&type=movie&apikey=${key}`)
+        const response = await fetch(`https://www.omdbapi.com/?i=${item}&type=movie&apikey=3a5aaa7b`)
         const data = await response.json()
         return [data.Title, data.Poster, data.Plot, data.Runtime, data.Genre, data.Ratings[0], data.imdbID]
     })
@@ -87,7 +87,7 @@ function renderMovies(arr) {
                         <h3 class="rating"><span class="star">★ </span>${ratings}</h3>
                         <p class='runtime'>${item[3]} - <span>${item[4]}</span></p>
                         <p class='plot'>${item[2]}</p>
-                        <div data-btnid="${id}" class="add added">
+                        <div data-btnid="${id}">
                             <p data-btnid="${id}"><i class="fa-solid fa-check" data-btnid="${id}"></i>Added!</p>
                         </div>
                     </div>
@@ -105,8 +105,8 @@ function renderMovies(arr) {
                         <h3 class="rating"><span class="star">★ </span>${ratings}</h3>
                         <p class='runtime'>${item[3]} - <span>${item[4]}</span></p>
                         <p class='plot'>${item[2]}</p>
-                        <div data-btnid="${id}" class="add">
-                            <p data-btnid="${id}"><i class="fa-solid fa-plus" data-btnid="${id}"></i>Add to watchlist</p>
+                        <div data-btnid="${id}">
+                            <p class="add" data-btnid="${id}"><i class="fa-solid fa-plus" data-btnid="${id}"></i>Add to watchlist</p>
                         </div>
                     </div>
                 </div>
