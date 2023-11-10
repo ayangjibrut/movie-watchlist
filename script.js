@@ -88,7 +88,7 @@ function renderMovies(arr) {
                         <p class='runtime'>${item[3]} - <span>${item[4]}</span></p>
                         <p class='plot'>${item[2]}</p>
                         <div data-btnid="${id}">
-                            <p data-btnid="${id}"><i class="fa-solid fa-check" data-btnid="${id}"></i>Added!</p>
+                            <p data-btnid="${id}" class="check"><i class="fa-solid fa-check" data-btnid="${id}"></i>Added!</p>
                         </div>
                     </div>
                 </div>

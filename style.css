@@ -143,10 +143,31 @@ p.runtime {
     padding-bottom: 1em;
 }
 
+.plus,
+.fa-plus {
+    color: #141414;
+}
+
+.check,
+.fa-check {
+    color: green;
+}
+
+p.add {
+    color: #141414;
+}
+
+p.remove,
+.fa-trash {
+    color: #a70000;
+}
+
 .fa-check,
 .fa-plus {
     padding-right: .5em;
 }
+
+
 
 p.add,
 .fa-plus,
